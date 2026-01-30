@@ -13,6 +13,5 @@ class TestOrdersList:
         assert resp.status_code == 200
 
         body = safe_json(resp) or {}
-        # В учебном API обычно поле orders — массив
         assert "orders" in body
         assert isinstance(body["orders"], list)

@@ -23,7 +23,6 @@ class TestCourierCreate:
         assert resp1.status_code == 201
 
         resp2 = create_courier(client, payload)
-        # обычно 409, но на учебном стенде важнее сам факт ошибки
         assert resp2.status_code in (400, 409)
 
         body = safe_json(resp2) or {}

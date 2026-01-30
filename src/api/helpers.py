@@ -35,8 +35,7 @@ def login_courier(client, login: str, password: str):
 
 def delete_courier_best_effort(client, courier_id: Optional[int]):
     """
-    В учебном API удаление иногда отличается реализацией.
-    Мы делаем best-effort: если ручка есть — удалим, если нет — не завалим тест.
+    если ручка есть — удалим, если нет — не завалим тест
     """
     if not courier_id:
         return
@@ -45,5 +44,4 @@ def delete_courier_best_effort(client, courier_id: Optional[int]):
     try:
         client.request("DELETE", path)
     except Exception:
-        # cleanup не должен ломать тест-ран
         pass

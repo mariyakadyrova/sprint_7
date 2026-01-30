@@ -15,7 +15,7 @@ class ApiClient:
         with allure.step(f"{method} {path}"):
             resp = self.session.request(method=method, url=url, timeout=15, **kwargs)
 
-            # полезно для Allure
+
             try:
                 allure.attach(str(kwargs.get("json") or kwargs.get("data")), "request_body", allure.attachment_type.TEXT)
             except Exception:

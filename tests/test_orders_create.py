@@ -15,7 +15,6 @@ def base_order_payload():
         "rentTime": 5,
         "deliveryDate": "2026-02-02",
         "comment": "Saske, come back to Konoha",
-        # color добавим/не добавим в тесте
     }
 
 
