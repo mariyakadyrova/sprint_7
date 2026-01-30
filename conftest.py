@@ -24,12 +24,12 @@ def courier_credentials(client):
     payload = make_courier_payload()
     resp = create_courier(client, payload)
 
-    # если вдруг не создался — пусть тест упадёт честно
+    # если вдруг не создался ^_^ тест падает
     assert resp.status_code == 201, f"Failed to create courier: {resp.status_code} {resp.text}"
 
     yield payload["login"], payload["password"], payload["firstName"]
 
-    # удалить можно только зная id → получаем его через логин
+    # удалить можно только зная id т е  получаем его через логин
     login_resp = login_courier(client, payload["login"], payload["password"])
     courier_id = None
     if login_resp.status_code == 200:
